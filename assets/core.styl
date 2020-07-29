@@ -119,12 +119,29 @@ resets(arr)
     li.ql-indent-{num}.ql-direction-rtl.ql-align-right
       padding-right: (3*num + LIST_STYLE_OUTER_WIDTH)em
 
+  for num in (1..MAX_INDENT)
+    .ql-indent-{num}:not(.ql-direction-ltr)
+      padding-right: (3*num)em
+    li.ql-indent-{num}:not(.ql-direction-ltr)
+      padding-right: (3*num + LIST_STYLE_OUTER_WIDTH)em
+    .ql-indent-{num}.ql-direction-ltr.ql-align-left
+      padding-left: (3*num)em
+    li.ql-indent-{num}.ql-direction-ltr.ql-align-left
+      padding-left: (3*num + LIST_STYLE_OUTER_WIDTH)em
+
   li.ql-direction-rtl
     padding-right: LIST_STYLE_OUTER_WIDTH
     > .ql-ui:before
       margin-left: LIST_STYLE_MARGIN
       margin-right: -1*LIST_STYLE_OUTER_WIDTH
       text-align: left
+
+  li.ql-direction-ltr
+    padding-left: LIST_STYLE_OUTER_WIDTH
+    > .ql-ui:before
+      margin-right: LIST_STYLE_MARGIN
+      margin-left: -1*LIST_STYLE_OUTER_WIDTH
+      text-align: right
 
   table
     table-layout: fixed
@@ -189,12 +206,18 @@ resets(arr)
     direction: rtl
     text-align: inherit
 
+  .ql-direction-ltr
+    direction: ltr
+    text-align: inherit
+
   .ql-align-center
     text-align: center
   .ql-align-justify
     text-align: justify
   .ql-align-right
     text-align: right
+  .ql-align-left
+    text-align: left
 
   .ql-ui
     position: absolute
